@@ -25,10 +25,10 @@ class Ui_MainWindow(object):
         self.high = vals[1]
         self.low = vals[2]
         predicted = self.linear_reg()
-        result = floor(
-            int(self.val_budget.text().replace(" ", "").replace(",", "")) / predicted[0])
+        result = int(floor(
+            int(self.val_budget.text().replace(" ", "").replace(",", "")) / predicted[0]))
         self.show_popup(
-            "QFinance", f"Please consider buying {result} and the predicted close price is {predicted[0]}", "info")
+            "QFinance", f"Please consider buying {result} stocks and the predicted close price is {predicted[0]}", "info")
 
     def show_popup(self, title, content, type):
         msg = QMessageBox()

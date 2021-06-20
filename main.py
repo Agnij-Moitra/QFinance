@@ -1,3 +1,4 @@
+from numpy import floor
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget
 import pickle
@@ -24,8 +25,10 @@ class Ui_MainWindow(object):
         self.high = vals[1]
         self.low = vals[2]
         predicted = self.linear_reg()
+        result = floor(
+            int(self.val_budget.text().replace(" ", "").replace(",", "")) / predicted[0])
         self.show_popup(
-            "QFinance", f"The predicted close price is {predicted[0]}", "info")
+            "QFinance", f"Please consider buying {result} and the predicted close price is {predicted[0]}", "info")
 
     def show_popup(self, title, content, type):
         msg = QMessageBox()
@@ -92,7 +95,7 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName("label_3")
         self.stock_names_label = QtWidgets.QLabel(self.centralwidget)
         self.stock_names_label.setGeometry(
-            QtCore.QRect(30, 390, 771, 201))  # 771, 201
+            QtCore.QRect(30, 390, 771, 201))
         self.stock_names_label.setAutoFillBackground(False)
         self.stock_names_label.setStyleSheet("font: 18pt \"Arial\";\n"
                                              "color: black;\n"
@@ -168,7 +171,7 @@ class Ui_MainWindow(object):
             "MainWindow", "Find The Best Stocks"))
 
         self.stock_names_label_2.setText(_translate(
-            "MainWindow", "Please enter the budget"))
+            "MainWindow", r"Please enter the budget in INR(₹)"))
 
 
 if __name__ == "__main__":
@@ -179,3 +182,9 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
+
+'''
+350.05, 357.90, 341.10 -- 16th June
+348.40, 352.90, 342.25 -- 17th June
+'''

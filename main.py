@@ -72,11 +72,11 @@ class Ui_MainWindow(object):
         self.label.setStyleSheet("font: 18pt \"Arial\";\n"
                                  "color: white;\n"
                                  "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
-                                 "  border-radius: 25px;\n"
-                                 "  background: rgb(255,0,0, 0.9);\n"
-                                 "  padding: 20px;\n"
-                                 "  width: 200px;\n"
-                                 "  height: 150px;")
+                                 "border-radius: 25px;\n"
+                                 "background: rgb(255,0,0, 0.9);\n"
+                                 "padding: 20px;\n"
+                                 "width: 200px;\n"
+                                 "height: 150px;")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setWordWrap(True)
         self.label.setObjectName("label")

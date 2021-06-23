@@ -3,6 +3,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget
 import pickle
 from PyQt5.QtWidgets import *
+from main2 import Ui_MainWindow_2
 
 
 class Ui_MainWindow(object):
@@ -44,9 +45,16 @@ class Ui_MainWindow(object):
 
         exit_show_popup = msg.exec_()
 
+    def pushButton_handler2(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_2()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1270, 877)
+        MainWindow.setFixedSize(1270, 877)
         MainWindow.setMouseTracking(True)
         MainWindow.setTabletTracking(True)
         MainWindow.setAcceptDrops(True)
@@ -112,7 +120,7 @@ class Ui_MainWindow(object):
         self.stock_names_label.setOpenExternalLinks(True)
         self.stock_names_label.setObjectName("stock_names_label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(420, 660, 341, 71))
+        self.pushButton.setGeometry(QtCore.QRect(310, 660, 341, 71))
         self.pushButton.setStyleSheet("font: 18pt \"Arial\";\n"
                                       "color: black;\n"
                                       "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
@@ -146,6 +154,19 @@ class Ui_MainWindow(object):
         self.val_budget.setStyleSheet("font: 18pt \"Arial\";\n"
                                       "")
         self.val_budget.setText("")
+
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(710, 660, 341, 71))
+        self.pushButton_2.setStyleSheet("font: 18pt \"Arial\";\n"
+                                        "color: black;\n"
+                                        "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
+                                        "border-radius: 25px;\n"
+                                        "background: rgb(0,255,255, 0.5);\n"
+                                        "padding: 20px;\n"
+                                        "width: 200px;\n"
+                                        "height: 150px;")
+        self.pushButton_2.setObjectName("pushButton_2")
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1270, 26))
@@ -157,7 +178,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
         self.pushButton.clicked.connect(self.pushButton_handler)
+        self.pushButton_2.clicked.connect(self.pushButton_handler2)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -172,6 +195,8 @@ class Ui_MainWindow(object):
 
         self.stock_names_label_2.setText(_translate(
             "MainWindow", r"Please enter the budget in INR(₹)"))
+
+        self.pushButton_2.setText(_translate("MainWindow", "Show Graph"))
 
 
 if __name__ == "__main__":

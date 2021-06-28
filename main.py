@@ -61,7 +61,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.bg = QtWidgets.QLabel(self.centralwidget)
-        self.bg.setGeometry(QtCore.QRect(-300, -230, 1581, 1141))
+        self.bg.setGeometry(QtCore.QRect(-300, -290, 1581, 1141))
         self.bg.setAutoFillBackground(False)
         self.bg.setText("")
         self.bg.setPixmap(QtGui.QPixmap("m-b-m-ZzOa5G8hSPI-unsplash.jpg"))
@@ -69,27 +69,26 @@ class Ui_MainWindow(object):
         self.bg.setWordWrap(True)
         self.bg.setObjectName("bg")
         self.stock_names = QtWidgets.QLineEdit(self.centralwidget)
-        self.stock_names.setGeometry(QtCore.QRect(830, 450, 421, 81))
-        self.stock_names.setStyleSheet("font: 8.25pt \"Arial\";\n"
-                                       "")
+        self.stock_names.setGeometry(QtCore.QRect(830, 570, 421, 81))
+        self.stock_names.setStyleSheet("font: 18pt \"Arial\";\n"
+                                       "background: rgb(255, 255, 255, 0.4);")
         self.stock_names.setText("")
         self.stock_names.setObjectName("stock_names")
-        self.stock_names.setStyleSheet("font: 18pt")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(450, 30, 381, 91))
         self.label.setStyleSheet("font: 18pt \"Arial\";\n"
-                                 "color: white;\n"
-                                 "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
-                                 "border-radius: 25px;\n"
-                                 "background: rgb(255,0,0, 0.9);\n"
-                                 "padding: 20px;\n"
-                                 "width: 200px;\n"
-                                 "height: 150px;")
+                                "color: white;\n"
+                                "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
+                                "border-radius: 25px;\n"
+                                "background: rgb(0,100, 255, 0.8);\n"
+                                "padding: 20px;\n"
+                                "width: 200px;\n"
+                                "height: 150px;")  
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setWordWrap(True)
         self.label.setObjectName("label")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(190, 130, 811, 91))
+        self.label_3.setGeometry(QtCore.QRect(210, 140, 811, 91))
         self.label_3.setStyleSheet("font: 18pt \"Arial\";\n"
                                    "color: black;\n"
                                    "/*text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;*/\n"
@@ -103,7 +102,7 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName("label_3")
         self.stock_names_label = QtWidgets.QLabel(self.centralwidget)
         self.stock_names_label.setGeometry(
-            QtCore.QRect(30, 390, 771, 201))
+            QtCore.QRect(10, 510, 771, 201))
         self.stock_names_label.setAutoFillBackground(False)
         self.stock_names_label.setStyleSheet("font: 18pt \"Arial\";\n"
                                              "color: black;\n"
@@ -120,7 +119,7 @@ class Ui_MainWindow(object):
         self.stock_names_label.setOpenExternalLinks(True)
         self.stock_names_label.setObjectName("stock_names_label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(310, 660, 341, 71))
+        self.pushButton.setGeometry(QtCore.QRect(320, 730, 341, 71))
         self.pushButton.setStyleSheet("font: 18pt \"Arial\";\n"
                                       "color: black;\n"
                                       "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
@@ -132,7 +131,7 @@ class Ui_MainWindow(object):
         self.pushButton.setObjectName("pushButton")
         self.stock_names_label_2 = QtWidgets.QLabel(self.centralwidget)
         self.stock_names_label_2.setGeometry(
-            QtCore.QRect(170, 240, 531, 131))  # 190, 520, 531, 131
+            QtCore.QRect(160, 390, 541, 111))  # 190, 520, 531, 131
         self.stock_names_label_2.setAutoFillBackground(False)
         self.stock_names_label_2.setStyleSheet("font: 18pt \"Arial\";\n"
                                                "color: black;\n"
@@ -150,13 +149,13 @@ class Ui_MainWindow(object):
         self.stock_names_label_2.setObjectName("stock_names_label_2")
         self.val_budget = QtWidgets.QLineEdit(self.centralwidget)
         self.val_budget.setGeometry(QtCore.QRect(
-            830, 270, 421, 81))  # 830, 530, 421, 81
+            830, 400, 421, 81))  # 830, 530, 421, 81
         self.val_budget.setStyleSheet("font: 18pt \"Arial\";\n"
-                                      "")
+                                      "background: rgb(255, 255, 255, 0.4);")
         self.val_budget.setText("")
 
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setGeometry(QtCore.QRect(710, 660, 341, 71))
+        self.pushButton_2.setGeometry(QtCore.QRect(730, 730, 341, 71))
         self.pushButton_2.setStyleSheet("font: 18pt \"Arial\";\n"
                                         "color: black;\n"
                                         "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
@@ -166,6 +165,30 @@ class Ui_MainWindow(object):
                                         "width: 200px;\n"
                                         "height: 150px;")
         self.pushButton_2.setObjectName("pushButton_2")
+
+        self.stock_names_label_3 = QtWidgets.QLabel(self.centralwidget)
+        self.stock_names_label_3.setGeometry(QtCore.QRect(170, 250, 541, 111))
+        self.stock_names_label_3.setAutoFillBackground(False)
+        self.stock_names_label_3.setStyleSheet("font: 18pt \"Arial\";\n"
+                                                "color: black;\n"
+                                                "text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;\n"
+                                                "border-radius: 25px;\n"
+                                                "background: rgb(0,255,255, 0.4);\n"
+                                                "padding: 20px;\n"
+                                                "width: 200px;\n"
+                                                "height: 150px;")
+        self.stock_names_label_3.setInputMethodHints(QtCore.Qt.ImhMultiLine)
+        self.stock_names_label_3.setScaledContents(True)
+        self.stock_names_label_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.stock_names_label_3.setWordWrap(True)
+        self.stock_names_label_3.setOpenExternalLinks(True)
+        self.stock_names_label_3.setObjectName("stock_names_label_3")
+        self.val_stock_code = QtWidgets.QLineEdit(self.centralwidget)
+        self.val_stock_code.setGeometry(QtCore.QRect(830, 270, 421, 81))
+        self.val_stock_code.setStyleSheet("font: 18pt \"Arial\";\n"
+                                        "background: rgb(255, 255, 255, 0.4);")
+        self.val_stock_code.setText("")
+        self.val_stock_code.setObjectName("val_stock_code")
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -197,6 +220,7 @@ class Ui_MainWindow(object):
             "MainWindow", r"Please enter the budget in INR(₹)"))
 
         self.pushButton_2.setText(_translate("MainWindow", "Show Graph"))
+        self.stock_names_label_3.setText(_translate("MainWindow", "Please enter the stock code"))
 
 
 if __name__ == "__main__":

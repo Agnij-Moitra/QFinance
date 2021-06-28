@@ -1,4 +1,0 @@
-350.05, 357.90, 341.10 -- 16th June
-348.40, 352.90, 342.25 -- 17th June
-
-https://datascience.foundation/img/pdf_images/understanding_of_linear_regression_with_python_1.png

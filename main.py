@@ -1,7 +1,14 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
 from numpy import floor
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QWidget
-import pickle
+import pandas as pd
+from sklearn.linear_model import LinearRegression
+# import pickle
+import matplotlib.pyplot as plt
+import pandas_datareader as pdr
 from PyQt5.QtWidgets import *
 from main2 import Ui_MainWindow_2
 
@@ -12,12 +19,78 @@ class Ui_MainWindow(object):
         self.open = None
         self.high = None
         self.low = None
+        self.name = None
 
     def linear_reg(self):
-        with open("module_pickle", "rb") as f:
-            reg = pickle.load(f)
+        # with open("module_pickle", "rb") as f:
+        #     reg = pickle.load(f)
 
-        return reg.predict([[self.open, self.high, self.low]])
+        STOCK_NAME = self.name
+
+        # In[43]:
+
+        yahoo_data_final = pdr.data.get_data_yahoo(STOCK_NAME, start='2020-01-01')
+        yahoo_data_final.to_csv("df.csv")
+        del yahoo_data_final
+        df = pd.read_csv("df.csv")
+
+        # In[44]:
+
+        df.Open = df.Open.fillna(df.Open.median())
+        df.High = df.High.fillna(df.High.median())
+        df.Low = df.Low.fillna(df.Low.median())
+        df.Close = df.Close.fillna(df.Close.median())
+
+        # In[45]:
+
+        regression = LinearRegression()
+        regression.fit(df[["Open", "High", "Low"]], df.Close)
+
+        # In[46]:
+
+        PRE_CLOSE = []
+        for i in range(len(df["Close"])):
+            temp = (df["Date"][i], (regression.predict([[df["Open"][i], df["High"][i], df["Low"][i]]])))
+            PRE_CLOSE.append(temp)
+            
+        perdicted = pd.DataFrame(PRE_CLOSE, columns=["Date", "Close"])
+        del PRE_CLOSE
+        del temp
+
+        plt.style.use("seaborn-whitegrid")
+        fig = plt.gcf()
+        fig.set_size_inches(50, 15)
+        plt.title(f"Actual vs Predicted Prices of {STOCK_NAME}", fontsize=100)
+        plt.xlabel("Date →", fontsize=50)
+        plt.yticks(fontsize=50)
+        plt.xticks(fontsize=50)
+        plt.xticks(rotation=90)
+        plt.ylabel("Price →", fontsize=50)
+        plt.tight_layout()
+        cmap = "coolwarm"
+        last = int(-14)
+        plt.scatter(df["Date"][last:], df["Close"][last:], marker=".", c=df["Close"][last:], 
+                    cmap=cmap, edgecolor="black", linewidth=0.5, s=1000)
+
+        plt.plot(df["Date"][last:], df["Close"][last:], '-', markersize=2000)
+
+        plt.plot(perdicted["Date"][last:], perdicted["Close"][last:], '^', markersize=20)
+        plt.plot(perdicted["Date"][last:], perdicted["Close"][last:], "--", markersize=30)
+
+        plt.legend(["Actual", "Predicted"], loc=2, prop={'size': 50})
+
+        plt.colorbar().ax.tick_params(labelsize=50)
+        plt.savefig("graph.png", dpi=250, bbox_inches="tight");
+
+        # In[41]:
+
+        del perdicted
+        del df
+        del STOCK_NAME
+
+        # In[25]:
+
+        return regression.predict([[self.open, self.high, self.low]])
 
     def pushButton_handler(self):
         vals = list(
@@ -25,6 +98,7 @@ class Ui_MainWindow(object):
         self.open = vals[0]
         self.high = vals[1]
         self.low = vals[2]
+        self.name = self.val_stock_code.text()
         predicted = self.linear_reg()
         result = int(floor(
             int(self.val_budget.text().replace(" ", "").replace(",", "")) / predicted[0]))
@@ -231,9 +305,3 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-
-
-'''
-350.05, 357.90, 341.10 -- 16th June
-348.40, 352.90, 342.25 -- 17th June
-'''

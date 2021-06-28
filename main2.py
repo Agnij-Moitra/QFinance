@@ -12,7 +12,7 @@ class Ui_MainWindow_2(object):
         self.label_graph = QtWidgets.QLabel(self.centralwidget)
         self.label_graph.setGeometry(QtCore.QRect(0, 0, 1341, 771))
         self.label_graph.setText("")
-        self.label_graph.setPixmap(QtGui.QPixmap("./temp/graph.png"))
+        self.label_graph.setPixmap(QtGui.QPixmap("graph.png"))
         self.label_graph.setScaledContents(True)
         self.label_graph.setObjectName("label_graph")
         MainWindow_2.setCentralWidget(self.centralwidget)

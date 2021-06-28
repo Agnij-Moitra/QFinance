@@ -11,6 +11,12 @@ import matplotlib.pyplot as plt
 import pandas_datareader as pdr
 from PyQt5.QtWidgets import *
 from main2 import Ui_MainWindow_2
+from os import remove
+
+try:
+    remove("graph.png")
+except FileNotFoundError:
+    pass
 
 
 class Ui_MainWindow(object):
@@ -80,6 +86,12 @@ class Ui_MainWindow(object):
         plt.legend(["Actual", "Predicted"], loc=2, prop={'size': 50})
 
         plt.colorbar().ax.tick_params(labelsize=50)
+        try:
+            remove("graph.png")
+        except FileNotFoundError:
+            pass
+        
+
         plt.savefig("graph.png", dpi=250, bbox_inches="tight");
 
         # In[41]:

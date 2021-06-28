@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from os import remove
 
 
 class Ui_MainWindow_2(object):
@@ -26,6 +27,10 @@ class Ui_MainWindow_2(object):
 
         self.retranslateUi(MainWindow_2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_2)
+        try:
+            remove("graph.png")
+        except FileNotFoundError:
+            pass
 
     def retranslateUi(self, MainWindow_2):
         _translate = QtCore.QCoreApplication.translate

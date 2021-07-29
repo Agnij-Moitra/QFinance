@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
             "MainWindow", "Find The Best Stocks"))
 
         self.stock_names_label_2.setText(_translate(
-            "MainWindow", r"Please enter the budget in INR(₹)"))
+            "MainWindow", r"Please enter the budget"))
 
         self.pushButton_2.setText(_translate("MainWindow", "Show Graph"))
         self.stock_names_label_3.setText(_translate("MainWindow", "Please enter the stock code"))

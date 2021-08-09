@@ -5,3 +5,4 @@ __pycache__/
 temp/
 df.csv
 graph.png
+.pyc

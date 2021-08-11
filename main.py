@@ -60,8 +60,7 @@ class Ui_MainWindow(object):
             PRE_CLOSE.append(temp)
             
         perdicted = pd.DataFrame(PRE_CLOSE, columns=["Date", "Close"])
-        del PRE_CLOSE
-        del temp
+        del PRE_CLOSE, temp
 
         plt.style.use("seaborn-whitegrid")
         fig = plt.gcf()
@@ -96,9 +95,7 @@ class Ui_MainWindow(object):
 
         # In[41]:
 
-        del perdicted
-        del df
-        del STOCK_NAME
+        del perdicted, df, STOCK_NAME
 
         # In[25]:
 
